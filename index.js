@@ -24,6 +24,7 @@ const getPerson = id => personLoader.load(id);
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
+    // Top level resolver
     persons: (_, args, ctx) => {
       /**
        * This is where the search query will be made.  Uncomment the 'full' search to see the behaviour once things are fully migrated
@@ -34,6 +35,7 @@ const resolvers = {
     }
   },
   Person: {
+    // Field level resolver
     emailCount: (person, args, ctx) => {
       if (person.emailCount) {
         // If the intial call (search result) already resolves this field it will exist on the parent (first arg, 'person' in this example) object.
@@ -47,6 +49,7 @@ const resolvers = {
       // These calls all get batched together. And multiple fields to the same object get deduped by dataloader
       return getPerson(person.id).then(data => data.weird.nesting.emailCount);
     },
+    // Field level resolver
     noteCount: (person, args, ctx) => {
       if (person.noteCount) {
         // If the intial call (search result) already resolves this field it will exist on the parent (first arg, 'person' in this example) object.
@@ -60,6 +63,7 @@ const resolvers = {
       // These calls all get batched together. And multiple fields to the same object get deduped by dataloader
       return getPerson(person.id).then(data => data.notes.noteCount);
     },
+    // Field level resolver
     attachmentCount: (person, args, ctx) => {
       if (person.attachmentCount) {
         // If the intial call (search result) already resolves this field it will exist on the parent (first arg, 'person' in this example) object.
