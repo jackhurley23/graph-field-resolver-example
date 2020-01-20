@@ -102,6 +102,12 @@ const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 server.applyMiddleware({ app });
 
+
+
+////////////////////////////////////////////
+
+// Example 'remote' endpoints to other services. e.g the new search api and the legacy systems
+
 /**
  * SEARCH-PARTIAL
  * This is an example of a search api result as we begin to migrate data and only have a few fields in the elastic search instance
