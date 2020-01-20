@@ -1,0 +1,21 @@
+{
+  "name": "graph-field-resolver-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.9.16",
+    "apollo-server-express": "^2.9.16",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "isomorphic-unfetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
+  }
+}
